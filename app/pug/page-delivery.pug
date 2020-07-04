@@ -1,0 +1,73 @@
+extends pug/template.pug
+
+
+block head
+	script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
+	script(src="js/delivery.js")
+
+	script.
+			//Мск
+			var mapCenter1 = [55.195781245686385,37.86035899121094];//центр карты
+			var mapZoom1 = 9;//масштаб карты
+			//метки карты
+			var marks1 = [
+			    {
+			        coord:[55.195781245686385,37.86035899121094],//координаты
+			        text:'Miss!',//текст при клике на метку
+			    },
+			];
+
+			//Область
+			var mapCenter2 = [55.385781245686385,37.86035899121094];//центр карты
+			var mapZoom2 = 9;//масштаб карты
+			//метки карты
+			var marks2 = [
+			    {
+			        coord:[55.385781245686385,37.86035899121094],//координаты
+			        text:'Miss!',//текст при клике на метку
+			    },
+			];
+
+	
+block content
+
+	div.deliSteps
+		.deliSteps-ttl Пошаговая инструкция как сделать заказ:
+		- 
+			var orderSteps = [
+				'Выбрать товар и указать его вес',
+				'Выбрать кол-во товаров',
+				'Добавить в корзину',
+				'Заполнить данные о доставке',
+			];
+		- for(l=0;l<orderSteps.length;l++) {
+							+plus(l+20,orderSteps[l],l+1)
+		- }
+	
+	.deliBlock
+		.row
+			.col-md-6
+				.ttl Условия доставки в Москве
+				ul.deliUl
+					li
+						span Минимальная сумма заказа для доставки 1000 рублей.
+				.deliMap#j-mapMsc
+			.col-md-6
+				.ttl Условия доставки в Москвовской области
+				ul.deliUl
+					li
+						span Минимальная сумма заказа для доставки 2500 рублей.
+				.deliMap#j-mapRegion
+	.row.align-items-center.deliBlockMarg
+		.col-md-6
+			.ttl Оплата наличными или картой курьеру
+			p Вы можете оплатить заказ наличными или картой курьеру.
+			.detailPays.deliPays
+							.detailPays-item.icon-pay1
+							.detailPays-item.icon-pay2
+							.detailPays-item.icon-pay3
+		.col-md-6
+			img(alt='' src='img/tmp/deli.jpg')
+
+	.brownToFooter 
+		include includes/brownForm.pug

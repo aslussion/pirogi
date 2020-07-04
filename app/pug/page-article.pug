@@ -1,0 +1,42 @@
+extends pug/template.pug
+
+
+block head
+
+	
+block content
+	.row.artic
+		.col-md-3.col-xl-2 
+			img.artic-pct(alt='' src='img/tmp/product.jpg')
+		.col-md-9.col-xl-10 	
+			.artic-date 23.09.2019
+			p Новинки в нашей пекарне
+			.ttlDetail Виды по названиям:
+			ul
+				li 
+					span uno 
+				li 
+					span dos
+				li 
+					span tres
+			ol
+				li 
+					span azul
+				li 
+					span barco
+				li 
+					span guitarra
+	.row
+		.offset-md-3.offset-xl-2.col-md-9.col-xl-10 
+			.prevNext
+				a.prevNext-link.prevNext-link--prev(href='') 
+					.prevNext-btn 
+					span.prevNext-text Предыдущая 
+						br.d-md-none
+						| статья
+				a.prevNext-link.prevNext-link--next(href='')  
+					span.prevNext-text Следующая 
+						br.d-md-none
+						| статья
+					.prevNext-btn 
+					 

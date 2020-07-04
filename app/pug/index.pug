@@ -1,0 +1,99 @@
+extends pug/template.pug
+
+block vars
+	- var is_index=true;	
+
+block head
+
+	
+block content
+	.row
+		.col-xl-6 
+			.ttl
+				h1 Осетинские пироги с доставкой в Москве
+			.row.imgTextBlock
+				.col-4.col-md-3.col-xl-4
+					img#main1Img(alt='' src='img/tmp/main1.jpg')
+				.col-8.col-md-9.col-xl-8 
+					.forOpen(data-height-obj='#main1Img')
+						.forOpen-hidden
+							.forOpen-hiddenHeight
+								p The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. 
+								p In JavaScript, you can always get the value of the current viewport by using the global variable window.innerHeight. This value takes the browser's interface into account and is updated when its visibility changes. The trick is to store the viewport value in a CSS variable and apply that to the element instead of the vh unit. Let's say our CSS custom variable is --vh for this example. That means we will want to apply it in our CSS like this:
+						.forOpen-ttl
+							div
+								span.forOpen-ttlSwitch.forOpen-ttlSwitch--open Читать все
+								span.forOpen-ttlSwitch.forOpen-ttlSwitch--hide Скрыть 
+					
+		.col-xl-5.offset-xl-1 
+			include includes/pluses.pug
+
+	.productsSlider.accord.accord--open
+		.ttl.productsSlider-ttl.d-none.d-md-block 
+			span.productsSlider-ttlInner Осетинские пироги 
+				span.text-lowercase C мясом
+		.ttl.productsSlider-ttl.d-block.d-md-none
+			.accordProductTitle 
+				.accord-ttl 
+					.accord-square
+					| C мясом
+				a.accordProductTitle-link(href='') Смотреть все
+		.accord-hidden
+			.sliderProducts.j-sliderProducts.owl-carousel.owl-theme
+				- for(i=1;i<=6;i++)
+					+product
+	.productsSlider.accord
+		.ttl.productsSlider-ttl.d-none.d-md-block 
+			span.productsSlider-ttlInner Осетинские пироги 
+				span.text-lowercase C картошкой
+		.ttl.productsSlider-ttl.d-block.d-md-none
+			.accordProductTitle  
+				.accord-ttl 
+					.accord-square
+					| C картошкой
+				a.accordProductTitle-link(href='') Смотреть все
+		.accord-hidden
+			.sliderProducts.j-sliderProducts.owl-carousel.owl-theme
+				- for(i=1;i<=6;i++)
+					+product
+	
+	.forOpen(data-height='285')
+		.forOpen-hidden
+			.forOpen-hiddenHeight
+				.row
+					.col-xl-6
+						.ttlDetail Секрет осетинского пирога
+						p The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed.
+					.col-xl-6
+						.ttlDetail Oсетинские пироги с бесплатной доставкой
+						p The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed.
+					.col-xl-12
+						.ttlDetail Где купить настоящие осетанские пироги недорого?
+						p The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed.
+		.forOpen-ttl
+			div
+				span.forOpen-ttlSwitch.forOpen-ttlSwitch--open Читать все
+				span.forOpen-ttlSwitch.forOpen-ttlSwitch--hide Скрыть 
+	br.d-md-none
+
+	include includes/brownForm.pug
+	
+	.row
+		.col-xl-6
+			.ttl.ttlLinked 
+				span Отзывы клиентов
+				a.ttlLinked-link(href='') Все отзывы
+			include includes/reviews.pug
+		.col-xl-6.instaWrapper
+			.ttlDetail Мы в Instagram
+			iframe(src="https://averin.pro/widget.php?l=pirogi_vkus_dnya&style=1&width=250&gallery=1&s=200&icc=3&icr=2&t=0&tt=Мы в Инстаграм&h=1&ttcolor=FFFFFF&th=c3c3c3&bw=f9f9f9&bscolor=FFFFFF&bs=FF0000&ts=Подписаться" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:250px; height:260px" )
+
+	.productsSlider.productsSlider--articles
+		.ttl.productsSlider-ttl 
+			span.productsSlider-ttlInner Интересные статьи
+		.sliderProducts.j-sliderArticles.owl-carousel.owl-theme
+			- for(i=1;i<=6;i++)
+				+articleSlider
+
+
+

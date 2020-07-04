@@ -1,0 +1,40 @@
+extends pug/template.pug
+
+
+block head
+
+	
+block content
+	.row.catalogTop
+		.col-md-4.col-xl-6
+			.catalogTop-pct
+				img(alt='' src='img/tmp/catalog1.jpg')
+		.col-md-8.col-xl-6 
+			.catalogTop-text
+				.forOpen(data-height='58')
+					.forOpen-hidden
+						.forOpen-hiddenHeight
+							div The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed.
+					.forOpen-ttl
+						div
+							span.forOpen-ttlSwitch.forOpen-ttlSwitch--open Читать все
+							span.forOpen-ttlSwitch.forOpen-ttlSwitch--hide Скрыть 
+
+	.row.catalogList
+		- for(i=1;i<=6;i++)
+			.col-md-4.col-xl-3
+				+product
+
+	.catalogBottom
+		.catalogBottom-ttl Осетинские пироги с бесплатной доставкой
+		p In JavaScript, you can always get the value of the current viewport by using the global variable window.innerHeight. This value takes the browser's interface into account and is updated when its visibility changes. The trick is to store the viewport value in a CSS variable and apply that to the element instead of the vh unit. Let's say our CSS custom variable is --vh for this example. That means we will want to apply it in our CSS like this:
+
+
+	.row
+		.col-xl-6
+			.ttl.ttlLinked 
+				span Отзывы наших клиентов
+				a.ttlLinked-link(href='') Все отзывы
+			include includes/reviews.pug
+		.col-xl-6
+			include includes/pluses.pug

@@ -1,0 +1,82 @@
+extends pug/template.pug
+
+
+block head
+
+	
+block content
+	p The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed.
+
+	.row
+		.col-xl-6
+			.ttl.d-block.d-md-none Главный повар
+			.row.chefBlock
+				.col-4.col-md-3.col-xl-4
+					img(alt='' src='img/tmp/chef.png')
+					.chef.d-block.d-md-none Раиса Гончарова
+				.col-8.col-md-9.col-xl-8
+					.ttl.chefName.d-none.d-md-block Главный повар
+					.chef.d-none.d-md-block Раиса Гончарова
+					.chefSpeach The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. The idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed.
+		.col-xl-5.offset-xl-1 
+			include includes/pluses.pug
+
+
+	// </div>
+	.wavesBlue.wavesToFooter  
+		.bin 
+			.row
+				.col-md-7.col-xl-4
+					.ttlDetail.detailTtlRev У вас есть вопросы или замечания по нашей работе? 
+						br.d-none.d-md-block
+						| Отправьте письмо руководству.
+					form.form.form--white.formAjax
+							
+						.row
+									.col-6
+										label(for='rev-name') Имя
+										.inputWrap
+											input.input(type='text' placeholder='Гость' id='rev-name' name='name')
+
+									.col-6
+										label(for='rev-phone') Телефон
+										.inputWrap
+											input.input.phoneMask(type='phone' id='rev-phone' name='phone' )
+
+
+						div
+								label(for='rev-comment') Сообщение
+									span.req *
+								.inputWrap
+									textarea.textarea.textarea--cartComment(placeholder='Текст сообщения...'  id='rev-comment' name='comment' required)
+						.d-flex.aling-center.justify-content-between
+							label.label.fancyForm-agree
+									.switch
+										input(type="checkbox" name="checkbox" value="0" checked disabled)
+										.switch-span
+									.label-text Даю согласие на обработку 
+										a(href='' target='_blank') персональных данных
+							button.button Отправить
+
+				.col-md-5
+					.d-none.d-md-block
+						img(alt='' src='img/tmp/female.png')
+				.col-md-12.col-xl-3
+					.requisites
+						.requisites-inner 
+							.ttlDetail Реквизиты:
+							.row
+								.col-md-3.col-xl-12 
+									p ООО "Кукушка"
+									p ИНН 7708791017
+									p КПП 7708010014
+								.col-md-4.col-xl-12 
+									p ОКПО 17696709
+									p ОГРН 1137746491332 от 10.06.13 г
+									p Р/C 407 02 810 3 0049 0000711
+								.col-md-5.col-xl-12 
+									p ОАО "ОТП БАНК"
+									p К/С 301 01 810 0 0000 0000311
+
+
+	// <div class='bin'>	

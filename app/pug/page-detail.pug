@@ -1,0 +1,130 @@
+extends pug/template.pug
+
+
+block head
+
+	
+block content
+
+	.detail.row
+		.col-xl-8.cartProduct.detailProduct
+			+productDetail
+
+		.col-xl-4
+			.row
+				.col-md-7.col-xl-10
+					.ttlDetail Oписание:
+					p Традиционный осетинский пирог с мягкий осетинским сыромТрадиционный осетинский пирог с мягкий осетинским сыром. Традиционный осетинский пирог с мягкий осетинским сыром
+				.col-md-4.col-xl-12.offset-md-1.offset-xl-0
+					.row
+						.col-10.col-md-12
+							.ttlDetail Cостав:
+							div
+								i Mука, говядина, лук, укроп
+						.col-2.col-md-12.d-flex.justify-content-end.align-items-end
+							span
+								img.detail-contentImg(alt='' src='img/tmp/detailContent.png')
+
+	.detailTexts
+		.row
+			.col-md-6.col-xl-4
+				.ttlDetail Условия доставки в Москве:
+				ul
+					li 
+						span Минимальная сумма заказа для доставки 1000 рублей;			
+			.col-md-6.col-xl-4
+				.ttlDetail Условия доставки в Москвской области:
+				ul
+					li 
+						span Минимальная сумма заказа для доставки 1000 рублей;					
+					li 
+						span Минимальная сумма заказа для доставки 1000 рублей;			
+			.col-md-12.col-xl-4
+				.ttlDetail.detailPayTtl Оплата
+				.row
+					.col-md-6.col-xl-12
+						p Вы можете оплатить заказ наличными или картой курьеру.
+					.col-md-6.col-xl-12
+						.detailPays
+							.detailPays-item.icon-pay1
+							.detailPays-item.icon-pay2
+							.detailPays-item.icon-pay3
+
+	// </div>
+	.wavesBlue 
+		.bin 
+			.row
+				.col-xl-6 
+					.ttl Отзывы о товаре (3)
+					include includes/reviews.pug
+
+				.col-xl-6
+					.ttlDetail.detailTtlRev Оставьте свой отзыв
+					form.form.form--white.formAjax
+						.row
+							.col-md-8.col-xl-12
+								.row
+									.col-6
+										label(for='rev-name') Представьтесь
+										.inputWrap
+											input.input(type='text' placeholder='Гость' id='rev-name' name='name')
+
+									.col-6
+										label(for='rev-email') E-mail
+										.inputWrap
+											input.input(type='email' id='rev-email' name='email' )
+
+									.col-6
+										label(for='rev-date') Дата доставки
+											span.req *
+										.inputWrap
+											input.input.datepicker(type='text' id='rev-date' name='date' required)
+									
+									.col-6
+										label(for='rev-stars') Оцените
+										.form-stars
+											+stars
+							.col-md-4.col-xl-12
+								label(for='rev-comment') Отзыв
+									span.req *
+								.inputWrap
+									textarea.textarea.textarea--cartComment(placeholder='Текст сообщения...'  id='rev-comment' name='comment' required)
+						.d-flex.aling-center.justify-content-between
+							label.label.fancyForm-agree
+									.switch
+										input(type="checkbox" name="checkbox" value="0" checked disabled)
+										.switch-span
+									.label-text Даю согласие на обработку 
+										a(href='' target='_blank') персональных данных
+							button.button Отправить
+
+	// <div class='bin'>
+	.blockBrown.d-flex.align-items-center
+				.blockBrown-pct
+					img(alt='' src='img/brownBlock.jpg')
+				.blockBrown-inner
+					.row
+						.col-xl-6
+							.blockBrown-ttl Нужна консультация?
+							p Заполните форму, наш менеджер свяжется с вами в ближайшее время.
+						.col-xl-6
+							form.form.form--white.form--whiteReq.formAjax
+								.row
+									.col-md-6
+										label(for='brown-name') Имя
+										.inputWrap
+											input.input(type='text' id='brown-name' name='name')
+									.col-md-6
+											label(for='brown-phone') Телефон
+												span.req *
+											.inputWrap
+												input.input.phoneMask(type='tel' id='brown-phone' name='phone' required)
+								.d-flex.aling-center.justify-content-between
+									label.label.fancyForm-agree
+											.switch
+												input(type="checkbox" name="checkbox" value="0" checked disabled)
+												.switch-span
+											.label-text Даю согласие на обработку 
+												a(href='' target='_blank') персональных данных
+									button.button Отправить
+				

@@ -1,0 +1,10 @@
+.reviews
+						- for(l=0;l<3;l++){
+							.review
+								.review-name Владимир
+								.review-info.d-flex.align-items-center
+									.review-strs
+										+stars(true,4)
+									span.review-date 23.09.2019
+								div In JavaScript, you can always get the value of the current viewport by using the global variable window.innerHeight. This value takes the browser's interface into account and is updated when its visibility changes. The trick is to store the viewport value in a CSS variable and apply that to the element instead of the vh unit. Let's say our CSS custom variable is --vh for this example. That means we will want to apply it in our CSS like this. he idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. 
+						- }

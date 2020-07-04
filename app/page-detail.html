@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>t</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="fonts/font.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.default.css" rel="stylesheet">
+    <link href="css/jquery-ui-datapicker.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/sprite.css">
+    <link rel="stylesheet/less" type="text/css" href="css/style.less">
+    <script src="js/less-1.7.3.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.inputmask.bundle.js"></script>
+    <script src="js/additional-methods.js"></script>
+    <script src="js/livequery.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery-ui-datapicker.js"></script>
+    <script src="js/ui-datapicker-ru.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/scriptsShop.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script>
+      var formSucc = 'Сообщение успешно отправлено';
+      var formReq = 'Не заполнены обязательные поля';
+      var formErr = 'Произошла ошибка, сообщение не отправлено';
+      var img = 'images/map.png';
+      
+      //https://yandex.ru/map-constructor/location-tool/
+      var mapCenter = [55.76451695405045,37.65105463882565];//центр карты
+      var mapZoom = 9;//масштаб карты
+      //метки карты
+      var marks = [
+          {
+              coord:[55.685781245686385,37.86035899121094],//координаты
+              text:'Hola!',//текст при клике на метку
+          },
+          {
+              coord:[56.008411645797686,37.84880854507563],
+              text:'Buenos dias!',
+          }
+          
+      ];
+      
+    </script>
+  </head>
+  <body>
+    <div class="bin headerWrapper">
+      <header class="header d-none d-md-block">
+        <div class="row">
+          <div class="col-2 col-xl-1"><a href="/"><img alt="" src="img/logo.png"></a></div>
+          <div class="col-10 col-xl-11">
+            <div class="hMenu">
+              <div class="hMenu-item"><a class="hMenu-link" href="page-catalog.html">Каталог</a></div>
+              <div class="hMenu-item"><a class="hMenu-link" href="page-detail.html">Детальная</a></div>
+              <div class="hMenu-item"><a class="hMenu-link" href="page-cart.html">Корзина</a></div>
+              <div class="hMenu-item"><a class="hMenu-link hMenu-link--current" href="page-us.html">О нас</a></div>
+              <div class="hMenu-item"><a class="hMenu-link" href="page-delivery.html">Доставка и оплата</a></div>
+              <div class="hMenu-item"><a class="hMenu-link" href="page-articles.html">Статьи</a></div>
+              <div class="hMenu-item"><a class="hMenu-link" href="page-article.html">Статья</a></div>
+              <div class="hMenu-item"><a class="hMenu-link" href="page-contact.html">Контакты</a></div>
+            </div>
+            <div class="row">
+              <div class="col-3 d-none d-xl-block">
+                <div class="logoLabel">Бесплатная доставка осетинских пирогов в Москве</div>
+              </div>
+              <div class="col-4 col-xl-3">
+                <div class="fcontact">
+                  <div class="fcontact-icon">
+                    <div class="icon-fPhone"></div>
+                  </div>
+                  <div>
+                    <div class="fcontact-bold"><a href="tel:+74993402418">+7 (499) 340-24-18</a></div>
+                    <div class="fcontact-text"><a class="fancy" href="#call">Заказать звонок</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 col-xl-3">
+                <div class="fcontact">
+                  <div class="fcontact-icon">
+                    <div class="icon-fTime"></div>
+                  </div>
+                  <div>
+                    <div class="fcontact-bold">Режим работы:</div>
+                    <div class="fcontact-text">Пн-вс с 7:00 до 22:00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 col-xl-3"> 
+                <div class="fcontact">
+                  <div class="fcontact-icon">
+                    <div class="icon-hCart"></div>
+                  </div>
+                  <div>
+                    <div class="fcontact-bold">Корзина:</div>
+                    <div class="fcontact-text"> <a href=""> <span class="cartTop-cnt">2</span> <span class="cartTop-word">товара</span>, <span class="cartTop-sum">1690 </span> 
+                        руб.</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="header header--small d-md-none">
+        <div class="row align-items-center">
+          <div class="col-1"> 
+            <div class="burger collapsed navbar-toggler" data-toggle="collapse" data-target="#headerBase">
+              <div class="burger-inner"></div>
+            </div>
+          </div>
+          <div class="col-3 header-logoSmallWrap"> <a href="/"><img alt="" src="img/logo.png"></a></div>
+          <div class="col-5">
+            <div class="logoLabel logoLabel--header">Бесплатная доставка осетинских пирогов в Москве											</div>
+          </div>
+          <div class="col-3 d-flex justify-content-end align-items-start flex-wrap hSmallIcons"> <a class="hSmallIcon" href="tel:+74993402418">
+              <div class="icon-hPhone"></div></a>
+            <div class="hSmallIcon"><a class="hCartSmall" href="">
+                <div class="icon-hCart"></div><span class="hCartSmall-cnt">2</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse smallBase d-md-none" id="headerBase">
+      <div class="smallBase-blue">
+        <div class="bin">
+          <div class="row">
+            <div class="col-6">
+              <div class="fcontact">
+                <div class="fcontact-icon">
+                  <div class="icon-fPhone"></div>
+                </div>
+                <div>
+                  <div class="fcontact-bold"><a href="tel:+74993402418">+7 (499) 340-24-18</a></div>
+                  <div class="fcontact-text"><a class="fancy" href="#call">Заказать звонок</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="fcontact">
+                <div class="fcontact-icon">
+                  <div class="icon-fTime"></div>
+                </div>
+                <div>
+                  <div class="fcontact-bold">Режим работы:</div>
+                  <div class="fcontact-text">Пн-вс с 7:00 до 22:00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="collapsed menuSmallBtn smallArrowed navbar-toggler" data-toggle="collapse" data-target="#menuSmall">Меню</div>
+      </div>
+      <div class="collapse navbar-collapse" id="menuSmall"> 
+        <div class="menuTopSmallTtl">
+          <div class="menuTopSmallTtl-pct"> 
+            <div class="icon-menu-pie menuTopSmallTtl-icon"> </div>
+          </div>
+          <div class="menuTopSmallTtl-text">Осетинские пироги</div>
+        </div>
+        <div class="menuTopSmall">
+          <div class="menuTopSmall-item"><a class="menuTopSmall-link smallArrowed" href="">С мясом</a></div>
+          <div class="menuTopSmall-item"><a class="menuTopSmall-link smallArrowed menuTopSmall-link--current" href="">С рыбой</a></div>
+          <div class="menuTopSmall-item"><a class="menuTopSmall-link smallArrowed" href="">С сыром</a></div>
+          <div class="menuTopSmall-item"><a class="menuTopSmall-link smallArrowed" href="">С картошкой</a></div>
+        </div>
+        <div class="menuTopSmallTtl">
+          <div class="menuTopSmallTtl-pct"> 
+            <div class="icon-menu-more menuTopSmallTtl-icon"> </div>
+          </div>
+          <div class="menuTopSmallTtl-text">Разное</div>
+        </div>
+        <div class="menuTopSmall">
+          <div class="menuTopSmall-item"><a class="menuTopSmall-link" href="">Русские пироги</a></div>
+        </div>
+      </div>
+      <div>
+        <div class="menuTopSmall">
+          <div class="menuTopSmall-item"><a class="menuTopSmall-link menuTopSmall-link--current smallArrowed" href="">Главная</a></div>
+          <div class="menuTopSmall-item"><a class="menuTopSmall-link smallArrowed" href="">О нас</a></div>
+          <div class="menuTopSmall-item"><a class="menuTopSmall-link smallArrowed" href="">Доставка и оплата</a></div>
+        </div>
+      </div>
+      <div>
+        <div class="bin socHeader"><a class="soc" href="" target="_blank">
+            <svg class="soc-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 4.157-5.336 2.073-5.336h-3.981c-.772 0-.828.435-1.103 1.083-.995 2.347-2.886 5.387-3.604 4.922-.751-.485-.407-2.406-.35-5.261.015-.754.011-1.271-1.141-1.539-.629-.145-1.241-.205-1.809-.205-2.273 0-3.841.953-2.95 1.119 1.571.293 1.42 3.692 1.054 5.16-.638 2.556-3.036-2.024-4.035-4.305-.241-.548-.315-.974-1.175-.974h-3.255c-.492 0-.787.16-.787.516 0 .602 2.96 6.72 5.786 9.77 2.756 2.975 5.48 2.708 7.376 2.708z"></path>
+            </svg></a><a class="soc" href="" target="_blank">
+            <svg class="soc-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+            </svg></a><a class="soc" href="" target="_blank">
+            <svg class="soc-svg soc-svg--inst" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M11.984 16.815c2.596 0 4.706-2.111 4.706-4.707 0-1.409-.623-2.674-1.606-3.538-.346-.303-.735-.556-1.158-.748-.593-.27-1.249-.421-1.941-.421s-1.349.151-1.941.421c-.424.194-.814.447-1.158.749-.985.864-1.608 2.129-1.608 3.538 0 2.595 2.112 4.706 4.706 4.706zm.016-8.184c1.921 0 3.479 1.557 3.479 3.478 0 1.921-1.558 3.479-3.479 3.479s-3.479-1.557-3.479-3.479c0-1.921 1.558-3.478 3.479-3.478zm5.223.369h6.777v10.278c0 2.608-2.114 4.722-4.722 4.722h-14.493c-2.608 0-4.785-2.114-4.785-4.722v-10.278h6.747c-.544.913-.872 1.969-.872 3.109 0 3.374 2.735 6.109 6.109 6.109s6.109-2.735 6.109-6.109c.001-1.14-.327-2.196-.87-3.109zm2.055-9h-12.278v5h-1v-5h-1v5h-1v-4.923c-.346.057-.682.143-1 .27v4.653h-1v-4.102c-1.202.857-2 2.246-2 3.824v3.278h7.473c1.167-1.282 2.798-2 4.511-2 1.722 0 3.351.725 4.511 2h7.505v-3.278c0-2.608-2.114-4.722-4.722-4.722zm2.722 5.265c0 .406-.333.735-.745.735h-2.511c-.411 0-.744-.329-.744-.735v-2.53c0-.406.333-.735.744-.735h2.511c.412 0 .745.329.745.735v2.53z"></path>
+            </svg></a></div>
+      </div>
+    </div>
+    <div class="menuBlock d-none d-md-block">
+      <div class="bin">
+        <div class="row align-items-center">
+          <div class="col-10">
+            <div class="menu">
+              <div class="menu-item"><a class="menu-link" href="">С мясом</a></div>
+              <div class="menu-item"><a class="menu-link menu-link--current" href="">С рыбой</a></div>
+              <div class="menu-item"><a class="menu-link" href="">С сыром</a></div>
+              <div class="menu-item"><a class="menu-link" href="">С картошкой</a></div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="row">
+              <div class="col-6 posStatic">
+                <div class="dropdown menuMore posStatic">
+                  <button class="menuMore-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                    <div class="menuMore-dots"></div>Еще
+                  </button>
+                  <div class="dropdown-menu menuMore-dropdown" aria-labelledby="dropdownMenuButton"><a class="dropdown-item menuMore-link menuMore-link--current" href="">Пицца</a><a class="dropdown-item menuMore-link" href="">Роллы</a><a class="dropdown-item menuMore-link" href="">Русские пироги</a></div>
+                </div>
+              </div>
+              <div class="col-6 d-flex justify-content-end align-items-center">
+                <div class="dropdown dropleft">
+                  <button class="searchBtn searchBtnDrop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                    <svg class="searchBtn-inner" width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"></path>
+                    </svg>
+                    <div class="searchBtnDrop-close"></div>
+                  </button>
+                  <div class="dropdown-menu searchDropdown">
+                    <form class="form formSearch">
+                      <input class="input formSearch-input" type="text" name="search" required>
+                      <button class="searchBtn formSearch-btn">
+                        <svg class="searchBtn-inner" width="24" height="24" viewBox="0 0 24 24">
+                          <path d="M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"></path>
+                        </svg>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bin content contentInner">
+      <div class="breads"><a class="breads-link" href="">Главная</a><span class="breads-sep">/</span><span>Каталог</span></div>
+      <div class="ttl">
+        <h1>О компании</h1>
+      </div>
+      <div class="detail row">
+        <div class="col-xl-8 cartProduct detailProduct">
+          <div class="product j-product">
+            <div class="product-sale">20</div>
+            <div class="product-img" style="background-image:url(img/tmp/product.jpg)"></div>
+            <div class="product-inner">
+              <div class="row product-top">
+                <div class="col-6 col-md-12">
+                  <div class="product-stars"> 
+                    <div>
+                      <div class="reviewStars reviewStars--unactive">
+                        <input class="star-4" id="star-4" type="radio" value="5" name="reviewStars-r"/>
+                        <label for="star-4"></label>
+                        <input class="star-3" id="star-3" type="radio" value="4" name="reviewStars-r"/>
+                        <label for="star-3"></label>
+                        <input class="star-2" id="star-2" type="radio" value="3" name="reviewStars-r"/>
+                        <label class="reviewStar--active" for="star-2"></label>
+                        <input class="star-1" id="star-1" type="radio" value="2" name="reviewStars-r"/>
+                        <label for="star-1"></label>
+                        <input class="star-0" id="star-0" type="radio" value="1" name="reviewStars-r"/>
+                        <label for="star-0"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 d-md-none">
+                  <div class="product-deliFree text-right">Доставка бесплатно!</div>
+                </div>
+              </div>
+              <div class="product-size product-size--marg">
+                <div class="dropdown">
+                  <button class="select selectWrap selectBtn j-productSize" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                    <div class="productProp">
+                      <div class="productProp-prop">
+                        <div class="icon-weight productProp-icon"></div><span>1.1кг</span>
+                      </div>
+                      <div class="productProp-prop">
+                        <div class="icon-diameter productProp-icon"></div><span>30см</span>
+                      </div>
+                    </div>
+                  </button>
+                  <div class="dropdown-menu selectBtnOptions j-productProps" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-item" id="123" data-price="560"> 
+                      <div class="productProp">
+                        <div class="productProp-prop">
+                          <div class="icon-weight productProp-icon"></div><span>1.1кг</span>
+                        </div>
+                        <div class="productProp-prop">
+                          <div class="icon-diameter productProp-icon"></div><span>30см</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dropdown-item" id="223" data-price="999"> 
+                      <div class="productProp">
+                        <div class="productProp-prop">
+                          <div class="icon-weight productProp-icon"></div><span>2.2кг</span>
+                        </div>
+                        <div class="productProp-prop">
+                          <div class="icon-diameter productProp-icon"></div><span>40см</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dropdown-item" id="323" data-price="1999"> 
+                      <div class="productProp">
+                        <div class="productProp-prop">
+                          <div class="icon-weight productProp-icon"></div><span>3.2кг</span>
+                        </div>
+                        <div class="productProp-prop">
+                          <div class="icon-diameter productProp-icon"></div><span>10см</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-pluses">
+                <div class="productPlus">
+                  <div class="productPlus-icon">
+                    <div class="icon-dPlus1"></div>
+                  </div>
+                  <div class="productPlus-text">Доставим за 1 час!</div>
+                </div>
+                <div class="productPlus">
+                  <div class="productPlus-icon">
+                    <div class="icon-dPlus2"></div>
+                  </div>
+                  <div class="productPlus-text">Любой способ оплаты</div>
+                </div>
+                <div class="productPlus">
+                  <div class="productPlus-icon">
+                    <div class="icon-dPlus3"></div>
+                  </div>
+                  <div class="productPlus-text">Скидочная карта на 10 %</div>
+                </div>
+              </div>
+              <div class="product-bottom">
+                <div class="product-prices"><span class="price product-price"> <span class="j-product-price">560 </span>р.</span></div>
+                <div>
+                  <div class="product-nmbLine">
+                    <div class="nmb">
+                      <div class="nmb-arrow nmb-arrow--minus"></div>
+                      <input class="nmb-input" value="1" readonly="readonly"/>
+                      <div class="nmb-arrow nmb-arrow--plus"></div>
+                    </div>
+                  </div>
+                  <div class="cartWrapper">
+                    <div class="product-button j-toCart" data-id="12345">В корзину</div>
+                    <div class="product-button j-added">В корзине</div>
+                  </div>
+                  <div class="product-deliFree d-none d-md-block">Доставка бесплатно!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="row">
+            <div class="col-md-7 col-xl-10">
+              <div class="ttlDetail">Oписание:</div>
+              <p>Традиционный осетинский пирог с мягкий осетинским сыромТрадиционный осетинский пирог с мягкий осетинским сыром. Традиционный осетинский пирог с мягкий осетинским сыром</p>
+            </div>
+            <div class="col-md-4 col-xl-12 offset-md-1 offset-xl-0">
+              <div class="row">
+                <div class="col-10 col-md-12">
+                  <div class="ttlDetail">Cостав:</div>
+                  <div><i>Mука, говядина, лук, укроп</i></div>
+                </div>
+                <div class="col-2 col-md-12 d-flex justify-content-end align-items-end"><span><img class="detail-contentImg" alt="" src="img/tmp/detailContent.png"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detailTexts">
+        <div class="row">
+          <div class="col-md-6 col-xl-4">
+            <div class="ttlDetail">Условия доставки в Москве:</div>
+            <ul>
+              <li> <span>Минимальная сумма заказа для доставки 1000 рублей;			</span></li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <div class="ttlDetail">Условия доставки в Москвской области:</div>
+            <ul>
+              <li> <span>Минимальная сумма заказа для доставки 1000 рублей;					</span></li>
+              <li> <span>Минимальная сумма заказа для доставки 1000 рублей;			</span></li>
+            </ul>
+          </div>
+          <div class="col-md-12 col-xl-4">
+            <div class="ttlDetail detailPayTtl">Оплата</div>
+            <div class="row">
+              <div class="col-md-6 col-xl-12">
+                <p>Вы можете оплатить заказ наличными или картой курьеру.</p>
+              </div>
+              <div class="col-md-6 col-xl-12">
+                <div class="detailPays">
+                  <div class="detailPays-item icon-pay1"></div>
+                  <div class="detailPays-item icon-pay2"></div>
+                  <div class="detailPays-item icon-pay3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div>-->
+      <div class="wavesBlue"> 
+        <div class="bin"> 
+          <div class="row">
+            <div class="col-xl-6"> 
+              <div class="ttl">Отзывы о товаре (3)</div>
+              <div class="reviews">
+                <div class="review">
+                  <div class="review-name">Владимир</div>
+                  <div class="review-info d-flex align-items-center">
+                    <div class="review-strs">
+                      <div>
+                        <div class="reviewStars reviewStars--unactive">
+                          <input class="star-4" id="star-4" type="radio" value="5" name="reviewStars-r"/>
+                          <label for="star-4"></label>
+                          <input class="star-3" id="star-3" type="radio" value="4" name="reviewStars-r"/>
+                          <label class="reviewStar--active" for="star-3"></label>
+                          <input class="star-2" id="star-2" type="radio" value="3" name="reviewStars-r"/>
+                          <label for="star-2"></label>
+                          <input class="star-1" id="star-1" type="radio" value="2" name="reviewStars-r"/>
+                          <label for="star-1"></label>
+                          <input class="star-0" id="star-0" type="radio" value="1" name="reviewStars-r"/>
+                          <label for="star-0"></label>
+                        </div>
+                      </div>
+                    </div><span class="review-date">23.09.2019</span>
+                  </div>
+                  <div>In JavaScript, you can always get the value of the current viewport by using the global variable window.innerHeight. This value takes the browser's interface into account and is updated when its visibility changes. The trick is to store the viewport value in a CSS variable and apply that to the element instead of the vh unit. Let's say our CSS custom variable is --vh for this example. That means we will want to apply it in our CSS like this. he idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. </div>
+                </div>
+                <div class="review">
+                  <div class="review-name">Владимир</div>
+                  <div class="review-info d-flex align-items-center">
+                    <div class="review-strs">
+                      <div>
+                        <div class="reviewStars reviewStars--unactive">
+                          <input class="star-4" id="star-4" type="radio" value="5" name="reviewStars-r"/>
+                          <label for="star-4"></label>
+                          <input class="star-3" id="star-3" type="radio" value="4" name="reviewStars-r"/>
+                          <label class="reviewStar--active" for="star-3"></label>
+                          <input class="star-2" id="star-2" type="radio" value="3" name="reviewStars-r"/>
+                          <label for="star-2"></label>
+                          <input class="star-1" id="star-1" type="radio" value="2" name="reviewStars-r"/>
+                          <label for="star-1"></label>
+                          <input class="star-0" id="star-0" type="radio" value="1" name="reviewStars-r"/>
+                          <label for="star-0"></label>
+                        </div>
+                      </div>
+                    </div><span class="review-date">23.09.2019</span>
+                  </div>
+                  <div>In JavaScript, you can always get the value of the current viewport by using the global variable window.innerHeight. This value takes the browser's interface into account and is updated when its visibility changes. The trick is to store the viewport value in a CSS variable and apply that to the element instead of the vh unit. Let's say our CSS custom variable is --vh for this example. That means we will want to apply it in our CSS like this. he idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. </div>
+                </div>
+                <div class="review">
+                  <div class="review-name">Владимир</div>
+                  <div class="review-info d-flex align-items-center">
+                    <div class="review-strs">
+                      <div>
+                        <div class="reviewStars reviewStars--unactive">
+                          <input class="star-4" id="star-4" type="radio" value="5" name="reviewStars-r"/>
+                          <label for="star-4"></label>
+                          <input class="star-3" id="star-3" type="radio" value="4" name="reviewStars-r"/>
+                          <label class="reviewStar--active" for="star-3"></label>
+                          <input class="star-2" id="star-2" type="radio" value="3" name="reviewStars-r"/>
+                          <label for="star-2"></label>
+                          <input class="star-1" id="star-1" type="radio" value="2" name="reviewStars-r"/>
+                          <label for="star-1"></label>
+                          <input class="star-0" id="star-0" type="radio" value="1" name="reviewStars-r"/>
+                          <label for="star-0"></label>
+                        </div>
+                      </div>
+                    </div><span class="review-date">23.09.2019</span>
+                  </div>
+                  <div>In JavaScript, you can always get the value of the current viewport by using the global variable window.innerHeight. This value takes the browser's interface into account and is updated when its visibility changes. The trick is to store the viewport value in a CSS variable and apply that to the element instead of the vh unit. Let's say our CSS custom variable is --vh for this example. That means we will want to apply it in our CSS like this. he idea struck me that CSS Custom Properties and a few lines of JavaScript might be the perfect way to get the consistent and correct sizing I needed. </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="ttlDetail detailTtlRev">Оставьте свой отзыв</div>
+              <form class="form form--white formAjax">
+                <div class="row">
+                  <div class="col-md-8 col-xl-12">
+                    <div class="row">
+                      <div class="col-6">
+                        <label for="rev-name">Представьтесь</label>
+                        <div class="inputWrap">
+                          <input class="input" type="text" placeholder="Гость" id="rev-name" name="name">
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <label for="rev-email">E-mail</label>
+                        <div class="inputWrap">
+                          <input class="input" type="email" id="rev-email" name="email">
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <label for="rev-date">Дата доставки<span class="req">*</span></label>
+                        <div class="inputWrap">
+                          <input class="input datepicker" type="text" id="rev-date" name="date" required>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <label for="rev-stars">Оцените</label>
+                        <div class="form-stars">
+                          <div>
+                            <div class="reviewStars">
+                              <input class="star-4" id="somestar-4" type="radio" value="5" name="reviewStars-r"/>
+                              <label for="somestar-4"></label>
+                              <input class="star-3" id="somestar-3" type="radio" value="4" name="reviewStars-r"/>
+                              <label for="somestar-3"></label>
+                              <input class="star-2" id="somestar-2" type="radio" value="3" name="reviewStars-r"/>
+                              <label for="somestar-2"></label>
+                              <input class="star-1" id="somestar-1" type="radio" value="2" name="reviewStars-r"/>
+                              <label for="somestar-1"></label>
+                              <input class="star-0" id="somestar-0" type="radio" value="1" name="reviewStars-r"/>
+                              <label for="somestar-0"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-xl-12">
+                    <label for="rev-comment">Отзыв<span class="req">*</span></label>
+                    <div class="inputWrap">
+                      <textarea class="textarea textarea--cartComment" placeholder="Текст сообщения..." id="rev-comment" name="comment" required></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex aling-center justify-content-between">
+                  <label class="label fancyForm-agree">
+                    <div class="switch">
+                      <input type="checkbox" name="checkbox" value="0" checked disabled>
+                      <div class="switch-span"></div>
+                    </div>
+                    <div class="label-text">Даю согласие на обработку <a href="" target="_blank">персональных данных</a></div>
+                  </label>
+                  <button class="button">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class='bin'>-->
+      <div class="blockBrown d-flex align-items-center">
+        <div class="blockBrown-pct"><img alt="" src="img/brownBlock.jpg"></div>
+        <div class="blockBrown-inner">
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="blockBrown-ttl">Нужна консультация?</div>
+              <p>Заполните форму, наш менеджер свяжется с вами в ближайшее время.</p>
+            </div>
+            <div class="col-xl-6">
+              <form class="form form--white form--whiteReq formAjax">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="brown-name">Имя</label>
+                    <div class="inputWrap">
+                      <input class="input" type="text" id="brown-name" name="name">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="brown-phone">Телефон<span class="req">*</span></label>
+                    <div class="inputWrap">
+                      <input class="input phoneMask" type="tel" id="brown-phone" name="phone" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex aling-center justify-content-between">
+                  <label class="label fancyForm-agree">
+                    <div class="switch">
+                      <input type="checkbox" name="checkbox" value="0" checked disabled>
+                      <div class="switch-span"></div>
+                    </div>
+                    <div class="label-text">Даю согласие на обработку <a href="" target="_blank">персональных данных</a></div>
+                  </label>
+                  <button class="button">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="bin"> 
+        <div class="footer-top">
+          <div class="row">
+            <div class="col-4 col-md-2 col-xl-1"><a href="/"><img alt="" src="img/logo.png"></a></div>
+            <div class="col-6 col-md-9 col-xl-10">
+              <div class="row">
+                <div class="col-11 col-xl-5 d-md-none d-lg-none d-xl-block logoLabel">Бесплатная доставка осетинских пирогов в Москве</div>
+                <div class="col-11 col-xl-7 d-none d-md-block"> 
+                  <div class="footerMenu d-flex justify-content-between">
+                    <div class="footerMenu-item"><a class="footerMenu-link footerMenu-link--current" href="">Главная</a></div>
+                    <div class="footerMenu-item"><a class="footerMenu-link" href="">О нас</a></div>
+                    <div class="footerMenu-item"><a class="footerMenu-link" href="">Доставка и оплата</a></div>
+                    <div class="footerMenu-item"><a class="footerMenu-link" href="">Акции</a></div>
+                    <div class="footerMenu-item"><a class="footerMenu-link" href="">Отзывы</a></div>
+                    <div class="footerMenu-item"><a class="footerMenu-link" href="">Блог</a></div>
+                    <div class="footerMenu-item"><a class="footerMenu-link" href="">Контакты</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-none d-md-block">
+                <div class="d-flex align-items-center justify-content-between flex-wrap fcontacts">
+                  <div class="fcontact">
+                    <div class="fcontact-icon">
+                      <div class="icon-fPhone"></div>
+                    </div>
+                    <div>
+                      <div class="fcontact-bold"><a href="tel:+74993402418">+7 (499) 340-24-18</a></div>
+                      <div class="fcontact-text"><a class="fancy" href="#call">Заказать звонок</a></div>
+                    </div>
+                  </div>
+                  <div class="fcontact">
+                    <div class="fcontact-icon">
+                      <div class="icon-fTime"></div>
+                    </div>
+                    <div>
+                      <div class="fcontact-bold">Режим работы:</div>
+                      <div class="fcontact-text">Пн-вс с 7:00 до 22:00</div>
+                    </div>
+                  </div>
+                  <div class="fcontact">
+                    <div class="fcontact-icon">
+                      <div class="icon-fEmail"></div>
+                    </div>
+                    <div>
+                      <div class="fcontact-bold">E-mail:</div>
+                      <div class="fcontact-text"><a href="mailto:info@osetinskie-pirogi.ru.net">info@osetinskie-pirogi.ru.net</a></div>
+                    </div>
+                  </div>
+                  <div class="fcontact">
+                    <div class="fcontact-icon">
+                      <div class="icon-fMap"></div>
+                    </div>
+                    <div>
+                      <div class="fcontact-bold">Адрес:</div>
+                      <div class="fcontact-text">109316г. Москва, Волгоградский пр-т, д. 32, корп. 8</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2 col-md-1 d-flex justify-content-end"> 
+              <div class="toTheTop">
+                <div class="toTheTop-inner"></div>
+              </div>
+            </div>
+          </div>
+          <div class="footerMenu d-flex justify-content-between flex-wrap d-md-none">
+            <div class="footerMenu-item"><a class="footerMenu-link footerMenu-link--current" href="">Главная</a></div>
+            <div class="footerMenu-item"><a class="footerMenu-link" href="">О нас</a></div>
+            <div class="footerMenu-item"><a class="footerMenu-link" href="">Доставка и оплата</a></div>
+            <div class="footerMenu-item"><a class="footerMenu-link" href="">Акции</a></div>
+            <div class="footerMenu-item"><a class="footerMenu-link" href="">Отзывы</a></div>
+            <div class="footerMenu-item"><a class="footerMenu-link" href="">Блог</a></div>
+            <div class="footerMenu-item"><a class="footerMenu-link" href="">Контакты</a></div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between flex-wrap fcontacts d-md-none">
+            <div class="fcontact">
+              <div class="fcontact-icon">
+                <div class="icon-fPhone"></div>
+              </div>
+              <div>
+                <div class="fcontact-bold"><a href="tel:+74993402418">+7 (499) 340-24-18</a></div>
+                <div class="fcontact-text"><a class="fancy" href="#call">Заказать звонок</a></div>
+              </div>
+            </div>
+            <div class="fcontact">
+              <div class="fcontact-icon">
+                <div class="icon-fTime"></div>
+              </div>
+              <div>
+                <div class="fcontact-bold">Режим работы:</div>
+                <div class="fcontact-text">Пн-вс с 7:00 до 22:00</div>
+              </div>
+            </div>
+            <div class="fcontact">
+              <div class="fcontact-icon">
+                <div class="icon-fEmail"></div>
+              </div>
+              <div>
+                <div class="fcontact-bold">E-mail:</div>
+                <div class="fcontact-text"><a href="mailto:info@osetinskie-pirogi.ru.net">info@osetinskie-pirogi.ru.net</a></div>
+              </div>
+            </div>
+            <div class="fcontact">
+              <div class="fcontact-icon">
+                <div class="icon-fMap"></div>
+              </div>
+              <div>
+                <div class="fcontact-bold">Адрес:</div>
+                <div class="fcontact-text">109316г. Москва, Волгоградский пр-т, д. 32, корп. 8</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-5 col-xl-4">&copy; 2019 Вкус Дня - Осетинские пироги с доставкой в Москве
+              <div class="footer-bottomLinks footer-bottomLinks--line d-none d-md-block d-lg-block d-xl-none"><a href="">Карта сайта</a><a href="" target="_blank">Политика конфиденциальности </a></div>
+            </div>
+            <div class="col-12 d-md-none"><a class="footerCreator d-flex align-items-center" href="" target="_blank"> <span class="footerCreator-text">Разработка и продвижение</span><span>&ensp;-&ensp;</span><span> <img alt="" src="img/creator.png"></span></a></div>
+            <div class="col-6 col-md-2 col-xl-3 d-md-none footer-bottomLinksSmall"><a href="">Карта сайта</a><br><a href="" target="_blank">Политика конфиденциальности </a></div>
+            <div class="col-6 col-md-2 footer-soc"> 
+              <div class="socWrapper d-flex justify-content-between align-items-center footer-socInner"><a class="soc" href="" target="_blank">
+                  <svg class="soc-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 4.157-5.336 2.073-5.336h-3.981c-.772 0-.828.435-1.103 1.083-.995 2.347-2.886 5.387-3.604 4.922-.751-.485-.407-2.406-.35-5.261.015-.754.011-1.271-1.141-1.539-.629-.145-1.241-.205-1.809-.205-2.273 0-3.841.953-2.95 1.119 1.571.293 1.42 3.692 1.054 5.16-.638 2.556-3.036-2.024-4.035-4.305-.241-.548-.315-.974-1.175-.974h-3.255c-.492 0-.787.16-.787.516 0 .602 2.96 6.72 5.786 9.77 2.756 2.975 5.48 2.708 7.376 2.708z"></path>
+                  </svg></a><a class="soc" href="" target="_blank">
+                  <svg class="soc-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                  </svg></a><a class="soc" href="" target="_blank">
+                  <svg class="soc-svg soc-svg--inst" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M11.984 16.815c2.596 0 4.706-2.111 4.706-4.707 0-1.409-.623-2.674-1.606-3.538-.346-.303-.735-.556-1.158-.748-.593-.27-1.249-.421-1.941-.421s-1.349.151-1.941.421c-.424.194-.814.447-1.158.749-.985.864-1.608 2.129-1.608 3.538 0 2.595 2.112 4.706 4.706 4.706zm.016-8.184c1.921 0 3.479 1.557 3.479 3.478 0 1.921-1.558 3.479-3.479 3.479s-3.479-1.557-3.479-3.479c0-1.921 1.558-3.478 3.479-3.478zm5.223.369h6.777v10.278c0 2.608-2.114 4.722-4.722 4.722h-14.493c-2.608 0-4.785-2.114-4.785-4.722v-10.278h6.747c-.544.913-.872 1.969-.872 3.109 0 3.374 2.735 6.109 6.109 6.109s6.109-2.735 6.109-6.109c.001-1.14-.327-2.196-.87-3.109zm2.055-9h-12.278v5h-1v-5h-1v5h-1v-4.923c-.346.057-.682.143-1 .27v4.653h-1v-4.102c-1.202.857-2 2.246-2 3.824v3.278h7.473c1.167-1.282 2.798-2 4.511-2 1.722 0 3.351.725 4.511 2h7.505v-3.278c0-2.608-2.114-4.722-4.722-4.722zm2.722 5.265c0 .406-.333.735-.745.735h-2.511c-.411 0-.744-.329-.744-.735v-2.53c0-.406.333-.735.744-.735h2.511c.412 0 .745.329.745.735v2.53z"></path>
+                  </svg></a></div>
+            </div>
+            <div class="col-6 col-md-2 col-xl-3 footer-bottomLinks d-none d-xl-block"><a href="">Карта сайта</a><a href="" target="_blank">Политика конфиденциальности </a></div>
+            <div class="col-3 col-md-5 col-xl-3 d-none d-md-block"> 
+              <div class="d-flex justify-content-end"><a class="footerCreator d-flex align-items-center justify-content-between" href="" target="_blank"> <span class="footerCreator-text">Разработка и продвижение</span><span>&ensp;-&ensp;</span><span> <img alt="" src="img/creator.png"></span></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div hidden>
+      <div class="fancyForm" id="call"> 
+        <div class="ttl">Заказать звонок</div>
+        <form class="form formAjax" action="ajax.php">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="call-name">Имя</label>
+              <div class="inputWrap">
+                <input class="input" type="text" id="call-name" name="name">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="call-phone">Телефон<span class="req">*</span></label>
+              <div class="inputWrap">
+                <input class="input phoneMask" type="tel" id="call-phone" name="phone" required>
+              </div>
+            </div>
+          </div>
+          <label for="call-comment">Когда и в какое время вам перезвонить?</label>
+          <div class="inputWrap">
+            <textarea class="textarea textarea--cartComment" placeholder="Заполните произвольно" id="call-comment" name="comment"></textarea>
+          </div>
+          <div class="d-flex aling-center justify-content-between">
+            <label class="label fancyForm-agree">
+              <div class="switch">
+                <input type="checkbox" name="checkbox" value="0" checked disabled>
+                <div class="switch-span"></div>
+              </div>
+              <div class="label-text">Даю согласие на обработку <a href="" target="_blank">персональных данных</a></div>
+            </label>
+            <button class="button">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+mixin menuBase
+	.menu
+		for el in menuBase
+			- var classAct = (el.active) ? ' menu-link--current' : '';
+			.menu-item
+				a(class="menu-link"+classAct href='')= el.title
+mixin menuXsBase
+	.menuTopSmall
+		for el in menuBase
+			- var classAct = (el.active) ? ' menuTopSmall-link--current' : '';
+			.menuTopSmall-item
+				a(class="menuTopSmall-link smallArrowed"+classAct href='')= el.title
+mixin product
+			.product.j-product
+				a.product-img(href='' style='background-image:url(img/tmp/product.jpg)')
+					.product-sale 20
+				.product-inner
+					.product-name
+						a.product-link(href='') С грибами, курицей, ветчиной, свининойС грибами, курицей, ветчиной, свининойС грибами, курицей, ветчиной, свининой
+					.product-text Традиционный осетинский пирог с мягкий осетинским сыромТрадиционный осетинский пирог с мягкий осетинским сыром. Традиционный осетинский пирог с мягкий осетинским сыром
+					.product-size.product-size--marg
+						.dropup.j-drop
+							button.select.selectWrap.selectBtn.j-productSize(type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+								+productProp()
+							.dropdown-menu.selectBtnOptions.j-productProps(aria-labelledby="dropdownMenuButton")
+								.dropdown-item#123(data-price=560) 
+									+productProp()
+								.dropdown-item#223(data-price=999) 
+									+productProp('2.2кг','40см')
+								.dropdown-item#323(data-price=1999)  
+									+productProp('3.2кг','10см')
+					.product-nmb
+						+nmb
+					.product-bottom
+						.product-prices
+							span.price.product-price 
+								span.j-product-price 560 
+								| р.
+						.cartWrapper
+							.product-button.j-toCart(data-id='12345') В корзину
+							.product-button.j-added В корзине
+
+mixin productCart
+			.product.j-productCart(data-id='12345')
+				a.product-img(style='background-image:url(img/tmp/product.jpg)' href='')
+				.product-inner
+					.product-name
+						a.product-link(href='') С грибами, курицей, ветчиной, свининойС грибами, курицей, ветчиной, свининойС грибами, курицей, ветчиной, свининой
+					.product-size.product-size--marg
+						+productProp()
+					.product-nmbLine
+						+nmb
+					.product-bottom
+						.product-prices
+							span.price.product-price 
+								span.j-product-price 560 
+								span &nbsp;р.
+						a.deleteBtn.j-product-delete(href='') 
+							svg.deleteBtn-svg(xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24")
+								path(d="M9 19c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5-17v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712zm-3 4v16h-14v-16h-2v18h18v-18h-2z")
+							.deleteBtn-text Удалить
+
+
+mixin productDetail
+			.product.j-product
+				.product-sale 20
+				.product-img(style='background-image:url(img/tmp/product.jpg)')
+				.product-inner
+					.row.product-top
+						.col-6.col-md-12
+							.product-stars 
+								+stars(true,3)
+						.col-6.d-md-none
+							.product-deliFree.text-right Доставка бесплатно!
+					
+					.product-size.product-size--marg
+						.dropdown
+							button.select.selectWrap.selectBtn.j-productSize(type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+								+productProp()
+							.dropdown-menu.selectBtnOptions.j-productProps(aria-labelledby="dropdownMenuButton")
+								.dropdown-item#123(data-price=560)  
+									+productProp()
+								.dropdown-item#223(data-price=999)  
+									+productProp('2.2кг','40см')
+								.dropdown-item#323(data-price=1999) 
+									+productProp('3.2кг','10см')
+					.product-pluses
+						.productPlus
+							.productPlus-icon
+								.icon-dPlus1
+							.productPlus-text Доставим за 1 час!
+						.productPlus
+							.productPlus-icon
+								.icon-dPlus2
+							.productPlus-text Любой способ оплаты
+						.productPlus
+							.productPlus-icon
+								.icon-dPlus3
+							.productPlus-text Скидочная карта на 10 %
+					
+					.product-bottom
+						.product-prices
+							span.price.product-price 
+								span.j-product-price 560 
+								| р.
+						div
+							.product-nmbLine
+								+nmb
+							.cartWrapper
+								.product-button.j-toCart(data-id='12345') В корзину
+								.product-button.j-added В корзине
+							.product-deliFree.d-none.d-md-block Доставка бесплатно!
+
+mixin productProp(w='1.1кг',d='30см')
+	.productProp
+		.productProp-prop
+			.icon-weight.productProp-icon
+			span= w 
+		.productProp-prop
+			.icon-diameter.productProp-icon
+			span=d 		
+
+mixin nmb
+	.nmb
+		.nmb-arrow.nmb-arrow--minus
+		input.nmb-input(type=text value='1' readonly)
+		.nmb-arrow.nmb-arrow--plus
+
+mixin stars(unact=false,current)
+	- var classUnact = (unact) ? ' reviewStars--unactive' : '';
+	div
+		div(class='reviewStars'+classUnact)
+			- for(i=4;i>=0;i--){
+				- 
+					var act = (current==(i+1)) ? 'reviewStar--active' : '';
+					var id = "star-"+i;
+					if(!unact)
+						id = 'some'+id;
+				input(id=id class='star-'+i type="radio" value=(i+1) name="reviewStars-r")
+				label(for=id class=act)
+			- }
+
+
+mixin article
+	.article
+		div.article-pctWrapper.d-md-none
+			.article-pct(style='background-image:url(img/tmp/catalog1.jpg)')
+			.article-date 23.11.2019
+			.article-button(href='') Подробнее
+		.article-pct.d-none.d-md-block(style='background-image:url(img/tmp/catalog1.jpg)')
+		.article-inner
+			.article-top
+				.article-name 
+					a.article-link(href='') Новинки в нашей пекарне
+				.article-date.d-none.d-md-block 23.11.2019
+				div In JavaScript, you can always get the value of the current viewport by using the global variable window.innerHeight.
+			.article-bottom.d-none.d-md-block
+				a.article-button(href='') Подробнее
+
+mixin articleSlider
+	.articleS
+		.articleS-pct(style='background-image:url(img/tmp/catalog1.jpg)')
+		.articleS-inner
+			.articleS-name 
+				a.articleS-link(href='') Новинки в нашей пекарне
+			.articleS-date 23.11.2019
+			div In JavaScript, you can always get the value of the current viewport by using the global variable window.innerHeight. This value takes the browser's interface into account and is updated when its visibility changes. The trick is to store the viewport value in a CSS variable and apply that to the element instead of the vh unit. Let's say our CSS custom variable is --vh for this example. That means we will want to apply it in our CSS like this
+
+mixin plus(i,text,nmb)
+	.plus
+		.plus-icon
+			div(class='plus-iconInner icon-plus'+i)
+			- if(nmb>0){
+				.plus-nmb= nmb
+			- }
+		.plus-text= text
+
+

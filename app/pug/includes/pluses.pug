@@ -1,0 +1,15 @@
+.ttl Наши преимущества
+.d-none.d-md-block
+				.row
+					- for(l=0;l<pluses.length;l++) {
+						.col-4.col-xl-6
+							+plus(l+1,pluses[l])
+					- }
+
+.d-md-none 
+				.sliderPluses.j-sliderPluses.owl-carousel.owl-theme
+					- for(l=0;l<pluses.length;l++) {
+						+plus(l+1,pluses[l])
+					- }
+
+

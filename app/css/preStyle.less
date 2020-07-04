@@ -1,0 +1,88 @@
+@xs:575px;
+@sm--min:575+1px;
+@sm:767px;
+@md--min:767+1px;
+@md:991px;
+@lg--min:991+1px;
+@lg:1199px;
+@xl--min:1199+1px;
+
+
+@md--min:767+1px;
+@md:992px;
+@lg--min:992px+1px;
+@lg:1199px;
+@xl--min:1199px+1px;
+
+@fontSize: 18px;
+@f:@fontSize + 2;
+ 
+.math {
+font-size: @md--min;
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	//margin:auto;
+}
+.clear{clear:both;}
+.clearfix{
+	&:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+.inline-table {
+    display: inline-table;
+    height: 100%;
+	.table-cell {
+	    display: table-cell;
+	    vertical-align: middle;
+	}
+}
+.placeholder(@color){
+	&::placeholder{color:@color;opacity:1;}
+}
+.transition(@time:1s){
+	transition: all @time;
+}
+.transform(@deg:15){
+	transform: rotate(@deg);
+}
+.ellips{
+	display: block;
+	white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+
+.bolded{font-weight: bold;}
+span[class^="icon-"]{display: inline-block;}
+
+@font-face {
+	font-family: 'Gotham Pro Regular';
+	src: url('../font/GothamPro.eot');
+	src: url('../font/GothamPro.eot?#iefix') format('embedded-opentype'),
+	url('../font/GothamPro.woff') format('woff'),
+	url('../font/GothamPro.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'GilroyLight';
+	src: url('../font/GilroyLight.eot');
+	src: local('☺'), url('../font/GilroyLight.woff') format('woff'), url('../font/GilroyLight.ttf') format('truetype'), url('../font/GilroyLight.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'GilroyExtraBold';
+	src: url('../font/GilroyExtraBold.eot');
+	src: local('☺'), url('../font/GilroyExtraBold.woff') format('woff'), url('../font/GilroyExtraBold.ttf') format('truetype'), url('../font/GilroyExtraBold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

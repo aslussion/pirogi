@@ -1,0 +1,53 @@
+.wavesBrown 
+		.bin 
+			.row
+				.col-xl-6.c-brown
+					.ttl.c-brown У нас вы можете заказать осетинские пироги на любое торжество и просто на дом
+
+					.plusesBrown
+						.row
+							.col-4.col-md-2.col-xl-4
+								+plus(10,'На день рождения (акция 10% скидка)')
+							.col-4.col-md-2.col-xl-4
+								+plus(11,'На свадьбу')
+							.col-4.col-md-2.col-xl-4
+								+plus(12,'Домой')
+							.col-4.col-md-2.col-xl-4
+								+plus(13,'В офис за 45 минут')
+							.col-4.col-md-2.col-xl-4
+								+plus(14,'На торжество')
+							.col-4.col-md-2.col-xl-4
+								+plus(15,'На Новый Год')
+
+
+				.col-xl-6.c-white
+					.ttl.c-white.d-md-none.d-xl-block Заказать осетинские пироги
+
+					form.form.form--white.form--whiteReq.formAjax
+							.row
+								.col-md-8.col-xl-12
+									.ttl.ttlOrderMd.c-white.d-none.d-md-block.d-xl-none Заказать осетинские пироги
+									.row
+										.col-6
+											label(for='order-name') Имя
+											.inputWrap
+												input.input(type='text' placeholder='Андрей' id='order-name' name='name')
+
+										.col-6
+											label(for='order-phone') Телефон
+												span.req *
+											.inputWrap
+												input.input.phoneMask.j-contact(type='tel' placeholder='+7' id='order-phone' name='phone' required)
+
+								.col-md-4.col-xl-12
+									label(for='order-comment') Комментарий
+									.inputWrap
+										textarea.textarea.textarea--cartComment(placeholder='Текст сообщения...'  id='order-comment' name='comment')
+							.d-flex.aling-center.justify-content-between
+								label.label.fancyForm-agree
+										.switch
+											input(type="checkbox" name="checkbox" value="0" checked disabled)
+											.switch-span
+										.label-text Даю согласие на обработку 
+											a(href='' target='_blank') персональных данных
+								button.button Заказать

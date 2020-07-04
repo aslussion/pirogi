@@ -1,0 +1,21 @@
+extends pug/template.pug
+
+
+block head
+
+	
+block content
+	.row.articles
+		- for(i=1;i<=6;i++)
+			.col-xl-6.articlesCol
+				+article
+
+	.pagination.pagination--margTop0.justify-content-center.justify-content-md-start
+		a.pagination-element(href='') 1
+		span.pagination-element.pagination-element--active 2
+		a.pagination-element(href='') 3
+		a.pagination-element.pagination-dots(href='') ...
+		a.pagination-element(href='') 10
+		a.pagination-element.pagination-arrow.pagination-arrow--next(href='') След.
+		a.pagination-element.pagination-arrow.pagination-arrow--end(href='') Конец
+		a.pagination-element(href='') Все

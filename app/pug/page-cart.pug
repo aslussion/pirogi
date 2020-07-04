@@ -1,0 +1,160 @@
+extends pug/template.pug
+
+
+block head
+	link(href="css/cart.css" rel="stylesheet")
+	script(src="js/cart.js")
+
+	
+block content
+	form.form.cartForm.row
+		.col-md-8 
+			section.cartSection.cartSection--brown
+				.cartProducts
+					.cartProduct
+						+productCart
+						+productCart
+						+productCart
+				.cartPromo
+					div
+						label(for='promo') Введите код купона для скидки
+					.row
+						.col-9.col-md-6.col-xl-4
+							input.input#promo(type='text')
+
+			section.cartSection
+				.ttl Доставка
+				.row
+					.col-6.col-xl-4 
+						label(for='cart-date') Дата доставки
+					.col-6.col-xl-4 
+						label(for='cart-time') В какое время доставить
+				.row
+					.col-6.col-xl-4
+						.selectWrap
+							input.datepickerCart.select.j-deliDay(type="text" readonly="true" placeholder="19.01.2020" id='cart-date' name='date' ) 
+					.col-6.col-xl-4
+						.selectWrap
+							select.select.j-deliTime(required id='cart-time' name='time')
+								option(value="" disabled selected hidden) Выберите
+								option(value='10-22') с 10 до 22
+			
+			section.cartSection
+				.ttl Оплата
+				.row
+					.col-6.col-xl-4
+						label.lblPayment
+							.switch.switch--radio.switch--payment
+								input.j-pay(type="radio" name="payment" value="0" required)
+								.switch-span
+									.payment-circle
+									.payment-icon
+										img(alt='' src='img/tmp/pay1.png')
+									.payment-text
+										.payment-name Наличными курьеру
+										.payment-descr Оплата на месте
+					.col-6.col-xl-4
+						label.lblPayment
+							.switch.switch--radio.switch--payment
+								input.j-pay(type="radio" name="payment" value="1" required)
+								.switch-span
+									.payment-circle
+									.payment-icon
+										img(alt='' src='img/tmp/pay1.png')
+									.payment-text
+										.payment-name Наличными курьеру
+										.payment-descr Оплата на месте
+
+			section
+				.ttl Контактная информация
+				.row
+					.col-xl-8
+						.row 
+							.col-6
+								label(for='cart-name') Имя
+									span.req *
+								.inputWrap
+									input.input.j-contact(type='text' placeholder='Иван' id='cart-name' name='name' required)
+
+							.col-6.cartContactPhone
+								label(for='cart-phone') Телефон
+									span.req *
+								.inputWrap
+									input.input.phoneMask.j-contact(type='tel' placeholder='+7' id='cart-phone' name='phone' required)
+
+							.col-md-6
+								label(for='cart-city') Город
+								.inputWrap
+									input.input.j-contact(type='text' placeholder='Москва' id='cart-city' name='city' )
+							
+							.col-md-6
+								label(for='cart-adr') Полный адрес
+								.inputWrap
+									input.input.j-contact(type='text' placeholder='Например: ул. Ленина' id='cart-adr' name='adr' )
+					.col-xl-4
+						label(for='cart-comment') Комментарий
+						.inputWrap
+							textarea.textarea.textarea--cartComment.j-contact(placeholder='Текст сообщения...'  id='cart-comment' name='comment')
+				.row.cartFinalLine
+					.col-md-5.col-xl-4.cartFinalLine-btn
+						button.cartButton.j-orderBtn Оформить заказ
+					.col-md-7.col-xl-8.cartFinalLine-agree
+						label.label
+								.switch
+									input(type="checkbox" name="checkbox" value="0" checked disabled)
+									.switch-span
+								.label-text Даю согласие на обработку 
+									a(href='' target='_blank') персональных данных
+
+
+
+
+
+		.col-md-4.col-xl-3.offset-xl-1.cartAsideCol
+			.cartAside 
+				.cartAside-products Товаров: 
+					span.j-productsCnt 3
+				.cartAside-inner
+					.cartAside-steps
+						.cartAside-step
+							.cartAside-stepNmb 1
+							.cartAside-stepText Доставка
+						.cartAside-step
+							.cartAside-stepNmb 2
+							.cartAside-stepText Оплата
+						.cartAside-step
+							.cartAside-stepNmb 3
+							.cartAside-stepText Контакты
+					.cartAside-prices
+						.cartAside-priceBlock.cartAside-priceBlock--prices
+							span Стоимость товаров
+							span.cartAside-priceBlockPrice
+								span.j-sumProducts 3000 
+								span руб.
+						.cartAside-priceBlock
+							span.d-none.d-md-block Стоимость доставки
+							span.d-md-none Доставка
+							span.cartAside-priceBlockPrice.deliv_summ 
+								span.j-sumDeli 0 
+								span руб.
+						.cartAside-priceBlock
+							span Ваша скидка
+							span.cartAside-priceBlockPrice.j-totalSale 
+								span.j-sumSale 0 
+								span руб.
+						.cartAside-priceBlock.cartAside-priceBlock--total
+							span.cartAside-priceBlockName.d-none.d-md-block Итого к оплате
+							span.cartAside-priceBlockName.d-md-none Итого
+							span.cartAside-priceBlockPrice.total_summ 
+								span.j-sumTotal 3500 
+								span &nbsp;руб.
+
+	.row
+		.col-md-8 
+			.blockBrown.blockBrown--cart.d-flex.align-items-center
+				.blockBrown-pct
+					img(alt='' src='img/brownBlock.jpg')
+				.blockBrown-inner
+					p.blockBrown-orderNmb Заказ №12345
+					p В ближайшее время с вами свяжется наш менеджер для подтверждения заказа.
+
